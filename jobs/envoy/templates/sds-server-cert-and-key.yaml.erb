@@ -1,0 +1,11 @@
+resources:
+- '@type': type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.Secret
+  name: server-cert-and-key
+  tls_certificate:
+    certificate_chain:
+      inline_string: |
+        <%= p("server_tls.certificate").gsub("\n","\n        ") %>
+    private_key:
+      inline_string: |
+        <%= p("server_tls.private_key").gsub("\n","\n        ") %>
+version_info: "0"

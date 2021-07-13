@@ -1,0 +1,8 @@
+resources:
+- '@type': type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.Secret
+  name: server-validation-context
+  validation_context:
+    trusted_ca:
+      inline_string: |
+        <%= p("client_validation.ca_certificate").gsub("\n", "\n        ") %>
+      version_info: "0"
